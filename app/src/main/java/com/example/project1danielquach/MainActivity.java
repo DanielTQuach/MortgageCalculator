@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         binding.calBtn.setOnClickListener(this::onClick);
         binding.unBtn.setOnClickListener(this::uninstall);
+        binding.seekBar.setMax(200);
+        binding.seekBar.setProgress(100); // Set halfway on by default, so 10.0
         binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Seekbar make sure that the range is from 0 to 20
     private void onClick(View v) {
-        String principle = binding.input.getText().toString();
+        String principle = binding.principleInput.getText().toString();
         if (!isValid(principle)) {
             return;
         }
